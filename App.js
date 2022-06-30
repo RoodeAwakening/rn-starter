@@ -15,24 +15,28 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: '#228CBD'
-        },
-        headerTintColor: '#fff'
-      }}
-      initialRouteName='Home'>
-        <Stack.Screen name="Home" component={HomeScreen} 
-          options={{
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#228CBD',
+          },
+          headerTintColor: '#fff',
+        }}
+        initialRouteName="Home"
+      >
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={({ navigation }) => ({
             headerRight: () => (
               <Icon
-                name='plus'
-                type='feather'
-                color='#fff'
+                name="plus"
+                type="feather"
+                color="#fff"
                 style={styles.headerIcon}
+                onPress={() => navigation.navigate('New')}
               />
-            )
-          }}
+            ),
+          })}
         />
         <Stack.Screen name="New" component={NewScreen} />
       </Stack.Navigator>
@@ -48,16 +52,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headerIcon: {
-    marginRight: 10
-  }
+    marginRight: 10,
+  },
 });
 
-
-// can add individual styling to page headers 
-        // options={{
-        //   headerStyle: {
-        //     backgroundColor: '#228CBD'
-        //   },
-        //   headerTintColor: '#fff',
-        //   fontWeight: 'bold',
-        // }}
+// can add individual styling to page headers
+// options={{
+//   headerStyle: {
+//     backgroundColor: '#228CBD'
+//   },
+//   headerTintColor: '#fff',
+//   fontWeight: 'bold',
+// }}
